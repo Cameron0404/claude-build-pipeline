@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# build-pipeline: run build_pipeline.py with the settings in this repo's .env (if there is one).
+#   bin/build-pipeline plan --request "..." --repo ~/code/app
+#   bin/build-pipeline tick            # what launchd or cron calls every minute
+set -euo pipefail
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+if [ -f "$HERE/.env" ]; then
+  set -a
+  # shellcheck disable=SC1091
+  . "$HERE/.env"
+  set +a
+fi
+# launchd and cron start with a bare PATH; the Claude Code CLI usually lives in one of these.
+export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
+exec python3 "$HERE/src/build_pipeline.py" "$@"
