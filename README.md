@@ -82,7 +82,7 @@ stream-json` in the brief's repo and records `state.json`, `stream.jsonl` and `l
 caps concurrent runs, stops a run at its time cap, queues a resume after a network error or a
 usage limit, and releases the worktree lock when a run ends. Another runner can stand in for it
 by providing the small interface listed at the top of that file. Steward, the fuller agent manager
-this was first built against, is at <https://github.com/Cameron0404/steward>.
+this was first built against, is at <https://github.com/cmills-dev/steward>.
 
 ### Files
 
@@ -117,7 +117,7 @@ you), `supervisor.log` and `STALLED.md` when it stops.
 1. Clone the repo somewhere it can stay:
 
    ```bash
-   git clone https://github.com/Cameron0404/claude-build-pipeline.git ~/code/claude-build-pipeline
+   git clone https://github.com/cmills-dev/claude-build-pipeline.git ~/code/claude-build-pipeline
    cd ~/code/claude-build-pipeline
    ```
 
